@@ -76,6 +76,8 @@ store.on('error', (err) => {
   console.log('SESSION STORE ERROR', err)
 });
 
+app.set("trust proxy", 1);
+
 const sessionConfig = {
   store,
   name: 'session',
@@ -83,10 +85,11 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   cookie: {
+    sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
     httpOnly: true,
     expires: Date.now() + 1000 * 60 * 60 * 1, // in miliseconds * seconds * minutes * hours * days
     maxAge: 1000 * 60 * 60 * 24 * 1,
-    secure: false
+    secure: process.env.NODE_ENV === "production"
   }
 };
 
