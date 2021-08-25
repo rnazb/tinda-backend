@@ -73,6 +73,7 @@ module.exports.getAverageSellerRating = async (req, res) => {
 
 
 module.exports.addProduct = async (req, res) => {
+  console.log("Reached addProduct controller");
   try {
     const productDetails = JSON.parse(req.body.details);
     const product = new Product(productDetails);
@@ -94,6 +95,7 @@ module.exports.addProduct = async (req, res) => {
 
 
 module.exports.editProduct = async (req, res) => {
+  console.log("Reached editProduct controller");
   try {
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, { ...req.body }, { new: true });
@@ -108,6 +110,7 @@ module.exports.editProduct = async (req, res) => {
 
 
 module.exports.deleteProduct = async (req, res) => {
+  console.log("Reached deleteProduct controller");
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -128,6 +131,7 @@ module.exports.deleteProduct = async (req, res) => {
 
 
 module.exports.addProductImages = async (req, res) => {
+  console.log("Reached addProductImages controller");
   try {
     const productId = JSON.parse(req.body.productId);
     const product = await Product.findById(productId);
@@ -151,6 +155,7 @@ module.exports.addProductImages = async (req, res) => {
 
 
 module.exports.deleteProductImages = async (req, res) => {
+  console.log("Reached deleteProductImages controller");
   try {
     const imagesToDelete = req.body.data;
     const product = await Product.findById(req.body.productId);

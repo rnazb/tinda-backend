@@ -49,7 +49,7 @@ const app = express();
 // Parse and configure requests
 
 const corsConfig = {
-  origin: process.env.CLIENT_DOMAIN,
+  origin: process.env.CLIENT_DOMAIN,               // Try setting to true
   methods: ['GET', 'PUT', 'POST', 'DELETE'],
   allowedHeaders: [
     'Content-Type',
