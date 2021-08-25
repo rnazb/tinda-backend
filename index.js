@@ -24,8 +24,8 @@ const orderRoutes = require('./routes/orderRoutes');
 // Keys and env setup
 
 const port = process.env.PORT || 4000;
-// const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/tindo';
-const dbUrl = 'mongodb://localhost:27017/tindo';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/tindo';
+// const dbUrl = 'mongodb://localhost:27017/tindo';
 const secret = process.env.SECRET;
 
 // Database configuration
