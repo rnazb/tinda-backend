@@ -96,7 +96,8 @@ module.exports.addProduct = async (req, res) => {
 module.exports.editProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    await Product.findByIdAndUpdate(id, { ...req.body }, { new: true });
+    const product = await Product.findByIdAndUpdate(id, { ...req.body }, { new: true });
+    await product.save();
     res.send('Successfully edited product');
 
   } catch (err) {
