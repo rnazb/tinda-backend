@@ -83,7 +83,7 @@ const sessionConfig = {
   name: 'session',
   secret,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
     httpOnly: true,
