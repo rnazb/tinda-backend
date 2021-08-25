@@ -49,7 +49,7 @@ const app = express();
 // Parse and configure requests
 
 const corsConfig = {
-  origin: 'http://localhost:3000',
+  origin: process.env.CLIENT_DOMAIN,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: [
     'Content-Type',
