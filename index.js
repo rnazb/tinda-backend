@@ -49,14 +49,14 @@ const app = express();
 // Parse and configure requests
 
 const corsConfig = {
-  origin: process.env.CLIENT_DOMAIN,               // Try setting to true
-  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  origin: true,                               // Try setting to true vs 
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],  // process.env.CLIENT_DOMAIN
   allowedHeaders: [
     'Content-Type',
     'Authorization'
   ],
   credentials: true,
-  preflightContinue: false
+  preflightContinue: true
 };
 
 app.use(cors(corsConfig));
