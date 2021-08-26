@@ -4,6 +4,7 @@ const Product = require('../models/product');
 const User = require('../models/user');
 
 module.exports.createOrder = async (req, res, next) => {
+  console.log("Reached createOrder controller");
   try {
     const buyer = req.user._id;
 
@@ -97,6 +98,7 @@ module.exports.getShopOrders = async (req, res) => {
 };
 
 module.exports.fulfillOrder = async (req, res, next) => {
+  console.log("Reached fulfillOrder controller");
   try {
     const { orderDetailId } = req.body;
     const orderDetail = await OrderDetail.findByIdAndUpdate(orderDetailId, { status: 'Completed' });

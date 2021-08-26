@@ -2,6 +2,7 @@ const User = require('../models/user');
 const passport = require('passport');
 
 module.exports.register = async (req, res, next) => {
+  console.log("Reached register controller");
   try {
     const { email, username, password, role } = req.body;
     const user = new User({ email, username, role });
@@ -22,6 +23,7 @@ module.exports.register = async (req, res, next) => {
 };
 
 module.exports.login = async (req, res, next) => {
+  console.log("Reached login controller");
   try {
     passport.authenticate('local', (err, user, info) => {
       if (err) throw err;
@@ -45,6 +47,7 @@ module.exports.login = async (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
+  console.log("Reached logout controller");
   try {
     req.logout();
     res.send('Logout successful');

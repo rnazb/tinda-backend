@@ -2,6 +2,7 @@ const Product = require('../models/product');
 const Review = require('../models/review');
 
 module.exports.createReview = async (req, res) => {
+  console.log("Reached createReview controller");
   try {
     const clientReview = {
       body: req.body.reviewBody,
@@ -33,6 +34,7 @@ module.exports.createReview = async (req, res) => {
 };
 
 module.exports.deleteReview = async (req, res) => {
+  console.log("Reached deleteReview controller");
   try {
     const { productId, reviewId } = req.params;
 
