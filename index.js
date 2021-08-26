@@ -49,15 +49,15 @@ const app = express();
 // Parse and configure requests
 
 const corsConfig = {
-  origin: true,                               // Try setting to true vs 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',  // process.env.CLIENT_DOMAIN
+  origin: process.env.CLIENT_DOMAIN,                             // Try setting to true vs 
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],  // process.env.CLIENT_DOMAIN
   allowedHeaders: [
     'Content-Type',
     'Authorization'
   ],
   credentials: true,
   preflightContinue: true,
-  maxAge: 10000
+  maxAge: 3000
 };
 
 app.options('*', cors(corsConfig));
