@@ -56,7 +56,8 @@ const corsConfig = {
     'Authorization'
   ],
   credentials: true,
-  preflightContinue: true
+  preflightContinue: true,
+  maxAge: 10000
 };
 
 app.options('*', cors(corsConfig));
