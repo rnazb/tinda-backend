@@ -56,7 +56,7 @@ const corsConfig = {
     'Authorization'
   ],
   credentials: true,
-  preflightContinue: true
+  preflightContinue: false
 };
 
 app.use(cors(corsConfig));
@@ -101,6 +101,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// 
 
 // Routing
 
