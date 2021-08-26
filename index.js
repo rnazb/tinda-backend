@@ -59,6 +59,7 @@ const corsConfig = {
   preflightContinue: true
 };
 
+app.options('*', cors(corsConfig));
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
