@@ -50,7 +50,7 @@ const app = express();
 
 const corsConfig = {
   origin: process.env.CLIENT_DOMAIN,                             // Try setting to true vs 
-  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],  // process.env.CLIENT_DOMAIN
+  methods: ['OPTIONS', 'GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],  // process.env.CLIENT_DOMAIN
   allowedHeaders: [
     'Content-Type',
     'Authorization'
