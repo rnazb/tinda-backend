@@ -56,7 +56,7 @@ const corsConfig = {
     'Authorization'
   ],
   credentials: true,
-  preflightContinue: false
+  preflightContinue: true
 };
 
 app.use(cors(corsConfig));
