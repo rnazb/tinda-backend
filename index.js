@@ -24,8 +24,9 @@ const orderRoutes = require('./routes/orderRoutes');
 // Keys and env setup
 
 const port = process.env.PORT || 4000;
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/tindo';
-// const dbUrl = 'mongodb://localhost:27017/tindo';
+const dbUrl = process.env.NODE_ENV === 'production' ?
+  process.env.DB_URL : 'mongodb://localhost:27017/tindo';
+
 const secret = process.env.SECRET;
 
 // Database configuration
@@ -48,8 +49,11 @@ const app = express();
 
 // Parse and configure requests
 
+const clientOrigin = process.env.NODE_ENV === 'production' ?
+  process.env.CLIENT_DOMAIN : 'http://localhost:3000';
+
 const corsConfig = {
-  origin: process.env.CLIENT_DOMAIN,                             // Try setting to true vs 
+  origin: clientOrigin,                             // Try setting to true vs 
   methods: ['OPTIONS', 'GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],  // process.env.CLIENT_DOMAIN
   allowedHeaders: [
     'Content-Type',
