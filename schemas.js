@@ -15,5 +15,5 @@ module.exports.reviewSchema = Joi.object({
   authorId: Joi.string(),
   reviewedProductId: Joi.string(),
   rating: Joi.number().min(0).max(5).required(),
-  reviewBody: Joi.string().required()
+  reviewBody: Joi.string().allow(null, '')
 }).required();
