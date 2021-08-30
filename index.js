@@ -53,8 +53,8 @@ const clientOrigin = process.env.NODE_ENV === 'production' ?
   process.env.CLIENT_DOMAIN : 'http://localhost:3000';
 
 const corsConfig = {
-  origin: clientOrigin,                             // Try setting to true vs 
-  methods: ['OPTIONS', 'GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],  // process.env.CLIENT_DOMAIN
+  origin: clientOrigin,
+  methods: ['OPTIONS', 'GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
   allowedHeaders: [
     'Content-Type',
     'Authorization'

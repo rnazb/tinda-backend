@@ -54,7 +54,9 @@ module.exports.getAverageSellerRating = async (req, res) => {
 
     const ratings = [];
     for (let index in products) {
-      ratings.push(products[index].averageRating);
+      if (products[index].reviews.length > 0) {
+        ratings.push(products[index].averageRating);
+      }
     };
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
